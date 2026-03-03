@@ -1,0 +1,98 @@
+{
+    "configurations": [
+        {
+            "name": "HAL-Template",
+            "compilerPath": "",
+            "compilerArgs": [],
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "DEBUG",
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "includePath": [
+                "${workspaceFolder}/hc_common_header/include",
+                "${workspaceFolder}/hal/inc",
+                "${workspaceFolder}/hal/cfg"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/hc_common_header/include",
+                    "${workspaceFolder}/hal/inc",
+                    "${workspaceFolder}/hal/cfg"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": "${workspaceFolder}/.vscode/vc.db"
+            }
+        },
+        {
+            "name": "Example-MSPM0",
+            "compilerPath": "",
+            "compilerArgs": [],
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "DEBUG",
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "includePath": [
+                "${workspaceFolder}/hc_common_header/include",
+                "${workspaceFolder}/hal/inc",
+                "${workspaceFolder}/hal/example/mspm0/cfg",
+                "${env:MSPM0_SDK_PATH}/source",
+                "${env:MSPM0_SDK_PATH}/source/ti"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/hc_common_header/include",
+                    "${workspaceFolder}/hal/inc",
+                    "${workspaceFolder}/hal/example/mspm0/cfg",
+                    "${env:MSPM0_SDK_PATH}/source"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": "${workspaceFolder}/.vscode/vc.db"
+            }
+        },
+        {
+            "name": "Example-STM32",
+            "compilerPath": "",
+            "compilerArgs": [],
+            "intelliSenseMode": "gcc-arm",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "defines": [
+                "DEBUG",
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "includePath": [
+                "${workspaceFolder}/hc_common_header/include",
+                "${workspaceFolder}/hal/inc",
+                "${workspaceFolder}/hal/example/stm32/cfg",
+                "${env:STM32_HAL_PATH}",
+                "${env:STM32_HAL_PATH}/Inc",
+                "${env:STM32_CMSIS_PATH}",
+                "${env:STM32_CMSIS_PATH}/Include"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/hc_common_header/include",
+                    "${workspaceFolder}/hal/inc",
+                    "${workspaceFolder}/hal/example/stm32/cfg",
+                    "${env:STM32_HAL_PATH}",
+                    "${env:STM32_CMSIS_PATH}"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": "${workspaceFolder}/.vscode/vc.db"
+            }
+        }
+    ],
+    "version": 4
+}

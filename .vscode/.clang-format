@@ -1,0 +1,157 @@
+---
+Language: Cpp
+
+# =========================
+# HC团队格式核心（强约束）
+# 行宽≤120；缩进4空格；禁用Tab
+# 参考：HC团队编码规范
+# =========================
+ColumnLimit: 120
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# switch/case 缩进
+IndentCaseLabels: true
+
+# 命名空间内不额外缩进（更接近示例风格）
+NamespaceIndentation: None
+
+# public/private 与 class 对齐（常见团队习惯）
+AccessModifierOffset: -4
+
+# =========================
+# 大括号风格：K&R（重点）
+# 目标：控制语句 if/for/while 同行 { ，函数定义独占一行 {
+# 参考：HC团队编码规范 "K&R大括号风格"
+# =========================
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: false
+  AfterControlStatement: Never        # if/for/while 的 { 跟随语句
+  AfterEnum: false
+  AfterFunction: true                 # 函数 { 独占一行
+  AfterNamespace: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+
+# =========================
+# 控制语句必须有大括号（HC团队强制规则）
+# 通过禁止短语句单行化，最大化"缺大括号"的审查可见性
+# 参考：HC团队编码规范 "控制语句格式规则"
+# =========================
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: All
+AllowShortEnumsOnASingleLine: false
+
+# =========================
+# 空格规则（对应规范表）
+# 参考：HC团队编码规范 "空格使用规则"
+# if/for/while 后加空格；括号内不加空格；[]不加空格；运算符按默认两侧空格
+# =========================
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeRangeBasedForLoopColon: true
+
+# =========================
+# 指针/引用：固定风格，避免文件间漂移
+# 依据示例：int WriteString(char *buf, int len);
+# 参考：HC团队编码规范 "函数头注释规则"
+# =========================
+DerivePointerAlignment: false
+PointerAlignment: Right
+ReferenceAlignment: Pointer
+
+# =========================
+# 函数参数/调用参数：不强行打包，优先可读性
+# 参考：HC团队编码规范 "函数参数设计"
+# =========================
+AlignAfterOpenBracket: Align
+ContinuationIndentWidth: 4
+BinPackArguments: false
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowAllArgumentsOnNextLine: true
+
+# 返回类型不强制断行
+AlwaysBreakAfterReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None
+
+# =========================
+# include：默认不自动排序/重分组，避免破坏人工分组与生态习惯
+# 参考：HC团队编码规范 "#include顺序"
+# 规范允许"三方库按生态习惯放置"，自动排序会破坏结构
+# =========================
+SortIncludes: false
+IncludeBlocks: Preserve
+
+# =========================
+# 预处理指令：更易读的宏缩进
+# =========================
+IndentPPDirectives: None
+
+# =========================
+# 注释：不自动重排，避免破坏 Doxygen/对齐风格
+# 参考：HC团队编码规范 "注释规范"
+# =========================
+ReflowComments: false
+
+# =========================
+# 其他格式规则
+# =========================
+AlignConsecutiveAssignments: false # 变量赋值对齐
+AlignConsecutiveDeclarations: false # 变量声明对齐
+AlignConsecutiveMacros: true # 宏定义值对齐
+AlignEscapedNewlines: Right
+AlignOperands: true
+AlignTrailingComments: true
+
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+BreakStringLiterals: true
+
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerIndentWidth: 4
+
+Cpp11BracedListStyle: true
+FixNamespaceComments: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+
+PenaltyBreakAssignment: 2
+PenaltyBreakBeforeFirstCallParameter: 19
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 120
+PenaltyBreakString: 1000
+PenaltyExcessCharacter: 1000000
+PenaltyReturnTypeOnItsOwnLine: 60
+
+PointerBindsToType: false
+SortUsingDeclarations: true
+SpaceAfterTemplateKeyword: true
+Standard: Auto
+...

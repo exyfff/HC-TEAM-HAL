@@ -1,0 +1,190 @@
+{
+    // =========================================================================
+    // 编辑器基础设置
+    // =========================================================================
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+
+    // =========================================================================
+    // 格式化设置 (Clang-Format)
+    // 参考：HC团队编码规范
+    // =========================================================================
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_style": "file:${workspaceFolder}/.vscode/.clang-format",
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+
+    // =========================================================================
+    // 文件关联
+    // =========================================================================
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+        "*.hpp": "cpp",
+        "*.cpp": "cpp",
+        "shared_mutex": "c",
+        "atomic": "c",
+        "cstdlib": "c",
+        "*.tcc": "c",
+        "cerrno": "c",
+        "rope": "c",
+        "expected": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "array": "c",
+        "functional": "c",
+        "regex": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "variant": "c",
+        "cstring": "c",
+        "complex": "c",
+        "thread": "c",
+        "jacobi": "c",
+        "compare": "c",
+        "chrono": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "slist": "cpp",
+        "initializer_list": "cpp",
+        "span": "cpp",
+        "stacktrace": "cpp",
+        "*.def": "c",
+        "ranges": "c",
+        "limits": "c",
+        "bitset": "c",
+        "iomanip": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "random": "c",
+        "cstdio": "c",
+        "source_location": "c",
+        "coroutine": "c",
+        "cstdint": "c",
+        "numbers": "c",
+        "istream": "c",
+        "valarray": "c"
+    },
+
+    // =========================================================================
+    // [优化] 1. UI 文件隐藏 - 彻底不显示这些文件，减少渲染压力
+    // =========================================================================
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        // 构建输出目录建议隐藏
+        "**/output": true,
+        "**/build": true,
+        // 如果你不需要看编译生成的文件，建议直接隐藏
+        "**/*.o": true, 
+        "**/*.obj": true,
+        "**/*.a": true,
+        "**/*.lib": true,
+        "**/*.hex": true,
+        "**/*.bin": true,
+        "**/*.elf": true,
+        "**/*.map": true
+    },
+
+    // =========================================================================
+    // [重要] 2. 搜索排除
+    // =========================================================================
+    "search.exclude": {
+        "**/output": true,
+        "**/build": true,
+        "**/.git": true,
+        "**/*.o": true,
+        "**/*.obj": true,
+        "**/*.a": true,
+        "**/*.lib": true,
+        "**/*.hex": true,
+        "**/*.bin": true,
+        "**/*.elf": true,
+        "**/*.map": true
+    },
+
+    // =========================================================================
+    // [核心] 3. 文件监视排除 - 这里是解决 CPU 100% 的关键
+    // =========================================================================
+    "files.watcherExclude": {
+        // 排除 Git 目录是必须的
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.vscode-server/**": true, // 排除服务端自身缓存
+        "**/output/**": true,
+        "**/build/**": true
+    },
+
+    // =========================================================================
+    // [关键] C/C++ 插件性能优化
+    // =========================================================================
+    //
+    // ┌─────────────────────────────────────────────────────────────────────────┐
+    // │ 配置项                          │ 作用                                  │
+    // ├─────────────────────────────────┼───────────────────────────────────────┤
+    // │ C_Cpp.default.browse.path       │ 限制索引到当前工作区                  │
+    // │ C_Cpp.files.exclude             │ 排除编译产物，禁止跳转                │
+    // │ C_Cpp.intelliSenseEngine        │ default 模式，提供精确定位            │
+    // │ C_Cpp.workspaceParsingPriority  │ low 优先级，防止解析阻塞 UI           │
+    // │ C_Cpp.intelliSenseCacheSize     │ 限制缓存大小，避免内存爆炸            │
+    // └─────────────────────────────────┴───────────────────────────────────────┘
+    //
+
+    // 1. 限制索引范围 - 防止扫描工作区外的冗余头文件
+    "C_Cpp.default.browse.path": [
+        "${workspaceFolder}"
+    ],
+
+    // 2. 排除不参与跳转的目录 (比 files.exclude 更严格)
+    "C_Cpp.files.exclude": {
+        "**/output": true,
+        "**/build": true,
+        "**/.git": true,
+        "**/*.o": true,
+        "**/*.obj": true,
+        "**/*.a": true,
+        "**/*.lib": true,
+        "**/*.hex": true,
+        "**/*.bin": true,
+        "**/*.elf": true,
+        "**/*.map": true
+    },
+
+    // 3. 使用 default 模式 - 完整语义分析 (符号变灰、精确跳转)
+    "C_Cpp.intelliSenseEngine": "default",
+
+    // 4. 降低解析优先级，避免卡死 UI
+    "C_Cpp.workspaceParsingPriority": "low",
+
+    // 5. 限制 IntelliSense 缓存大小 (MB)
+    "C_Cpp.intelliSenseCacheSize": 2048,
+
+    // =========================================================================
+    // Git 与静态分析检查设置
+    // =========================================================================
+    "git.ignoreLimitWarning": true,
+    "remote.autoForwardPortsFallback": 0,
+    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": []
+}
